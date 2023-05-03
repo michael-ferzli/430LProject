@@ -1,0 +1,97 @@
+import React, { useState, useEffect } from "react";
+import { DataGrid } from "@mui/x-data-grid";
+import { TextField, Button, Select, MenuItem } from "@mui/material";
+
+const ExchangeTransactions = ({ userToken }) => {
+  const [transactions, setTransactions] = useState([]);
+  const [lbpInput, setLbpInput] = useState("");
+  const [usdInput, setUsdInput] = useState("");
+  const [transactionType, setTransactionType] = useState("usd-to-lbp");
+
+  const columns = [
+    { field: "id", headerName: "Transaction ID" },
+    { field: "usd_amount", headerName: "USD Amount" },
+    { field: "lbp_amount", headerName: "LBP Amount" },
+    { field: "usd_to_lbp", headerName: "USD TO LBP" },
+    { field: "added_date", headerName: "Transaction date", width: 250 },
+  ];
+
+  useEffect(() => {
+    fetch(`${SERVER_URL}/transaction`, {
+      headers: {
+        Authorization: `bearer ${userToken}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((transactions) => setTransactions(transactions));
+  }, [userToken]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (lbpInput <= 0 || usdInput <= 0) {
+      return;
+    }
+    const type = transactionType === "usd-to-lbp" ? 1 : 0;
+    const data = {
+      usd_amount: usdInput,
+      lbp_amount: lbpInput,
+  usd_to_lbp: type,
+};
+fetch(`${SERVER_URL}/transaction`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${userToken}`,
+  },
+  body: JSON.stringify(data),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    setLbpInput("");
+    setUsdInput("");
+    setTransactionType("usd-to-lbp");
+    setTransactions([...transactions, data]);
+  });
+};
+
+return (
+<div className="wrapper">
+<h2>Exchange Transactions</h2>
+<form onSubmit={handleSubmit}>
+<div className="amount-input">
+<label htmlFor="lbp-amount">LBP Amount</label>
+<TextField
+id="lbp-amount"
+type="number"
+value={lbpInput}
+onChange={(e) => setLbpInput(e.target.value)}
+/>
+</div>
+<div className="amount-input">
+<label htmlFor="usd-amount">USD Amount</label>
+<TextField
+id="usd-amount"
+type="number"
+value={usdInput}
+onChange={(e) => setUsdInput(e.target.value)}
+/>
+</div>
+<Select
+id="transaction-type"
+value={transactionType}
+onChange={(e) => setTransactionType(e.target.value)}
+>
+<MenuItem value="usd-to-lbp">USD to LBP</MenuItem>
+<MenuItem value="lbp-to-usd">LBP to USD</MenuItem>
+</Select>
+<Button id="add-button" type="submit">
+Add
+</Button>
+</form>
+<br />
+<DataGrid columns={columns} rows={transactions} autoHeight />
+</div>
+);
+}
+
+export default ExchangeTransactions;
