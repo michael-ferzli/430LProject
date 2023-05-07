@@ -1,0 +1,15 @@
+.UserTransactions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .UserTransactions label {
+    margin-right: 5px;
+  }
+  
+  .UserTransactions button {
+    margin-top: 10px;
+  }
+  

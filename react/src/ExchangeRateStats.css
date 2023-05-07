@@ -1,0 +1,30 @@
+.ExchangeRateStats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #e8f5e9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+
+.ExchangeRateStats h6 {
+  color: #2e7d32;
+  margin-bottom: 0.5rem;
+}
+
+.ExchangeRateStats p {
+  color: #4caf50;
+  margin: 0.25rem 0;
+}
+
+@media (max-width: 500px) {
+  .ExchangeRateStats {
+    width: 100%;
+    padding: 1rem 0.5rem;
+  }
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, TextField, Typography, List, ListItem, ListItemText, Alert, Snackbar } from '@mui/material';
+import './UserTransactions.css';
 
 function UserTransactions({ userToken }) {
   const [amount, setAmount] = useState('');
@@ -88,20 +89,22 @@ function UserTransactions({ userToken }) {
       <Typography variant="h5">Perform Exchange Transaction</Typography>
       <div>
         <label htmlFor="amount">Amount (USD):</label>
-        <TextField
+        <input
           id="amount"
           type="number"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
+          min="0"
         />
       </div>
       <div>
         <label htmlFor="lbpAmount">Amount (LBP):</label>
-        <TextField
+        <input
           id="lbpAmount"
           type="number"
           value={lbpAmount}
           onChange={(e) => setLbpAmount(e.target.value)}
+          min="0"
         />
       </div>
       <Button onClick={postOffer} variant="contained" color="primary">

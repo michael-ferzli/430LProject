@@ -1,4 +1,7 @@
-import './App.css';
+import './App.css'
+import './ExchangeRateGraph.css'
+import './ExchangeRateStats.css'
+
 import { useState, useEffect } from "react";
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -17,6 +20,7 @@ import ExchangeRateHistory from './ExchangeRateHistory';
 import ExchangeTransactions from './ExchangeTransactions';
 import UserTransactions from './USerTransactions';
 import Forum from './Forum';
+import MiniGame from './MiniGame';
 
 
 var SERVER_URL = "http://127.0.0.1:5000";
@@ -207,7 +211,7 @@ function App() {
               <form name="calculator-entry">
                   <div className="amount-input">
                       <label htmlFor="amount">Amount</label>
-                      <TextField id="amount" type="number" value={calculatorInput} onChange={e => setCalculatorInput(e.target.value)}/>
+                      <input id="amount" type="number" value={calculatorInput} onChange={e => setCalculatorInput(e.target.value)} min="0"/>
                   </div>
                   <Select id="calculation-type" defaultValue={"usd-to-lbp"} onChange={e => setCalculationType(e.target.value)}>
                       <option value="usd-to-lbp">USD to LBP</option>
@@ -224,11 +228,11 @@ function App() {
               <form name="transaction-entry">
                   <div className="amount-input">
                       <label htmlFor="lbp-amount">LBP Amount</label>
-                      <TextField id="lbp-amount" type="number" value={lbpInput} onChange={e => setLbpInput(e.target.value)}/>
+                      <TextField id="lbp-amount" type="number" value={lbpInput} onChange={e => setLbpInput(e.target.value)} min="0"/>
                   </div>
                   <div className="amount-input">
                       <label htmlFor="usd-amount">USD Amount</label>
-                      <TextField id="usd-amount" type="number" value={usdInput} onChange={e => setUsdInput(e.target.value)}/>
+                      <TextField id="usd-amount" type="number" value={usdInput} onChange={e => setUsdInput(e.target.value)} min="0"/>
                   </div>
                   <Select id="transaction-type" defaultValue={"usd-to-lbp"} onChange={e => setTransactionType(e.target.value)}>
                       <MenuItem value="usd-to-lbp">USD to LBP</MenuItem>
@@ -254,6 +258,10 @@ function App() {
             <div className="wrapper">
             <Typography variant='h6'>Forum</Typography>
             <Forum userToken={userToken}></Forum>
+            </div>
+            <div className="wrapper">
+            <Typography variant='h6'>Game</Typography>
+            <MiniGame ></MiniGame>
             </div>
           {userToken && (
         <div className="wrapper">

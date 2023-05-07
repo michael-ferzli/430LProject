@@ -1,0 +1,15 @@
+.Forum {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .Forum label {
+    margin-right: 5px;
+  }
+  
+  .Forum button {
+    margin-top: 10px;
+  }
+  

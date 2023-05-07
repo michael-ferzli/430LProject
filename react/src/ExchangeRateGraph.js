@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import './ExchangeRateGraph.css';
 
 function ExchangeRateGraph({ userToken }) {
   const [transactions, setTransactions] = useState([]);
   const [timeRange, setTimeRange] = useState('all');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
 
   useEffect(() => {
     const fetchTransactions = async () => {
@@ -28,15 +31,20 @@ function ExchangeRateGraph({ userToken }) {
     return sum / array.length;
   };
 
-  const filterTransactionsByDate = (transactions, days) => {
-    const currentDate = new Date();
+  const filterTransactionsByDate = (transactions, start, end) => {
+    const isCustomRange = typeof start === 'string' && typeof end === 'string';
+    const startDate = isCustomRange ? new Date(start) : new Date(Date.now() - start * 24 * 60 * 60 * 1000);
+    const endDate = isCustomRange ? new Date(end) : new Date();
+  
     const filteredTransactions = transactions.filter(transaction => {
       const transactionDate = new Date(transaction.added_date);
-      const timeDifference = Math.abs(currentDate - transactionDate);
-      const dayDifference = timeDifference / (1000 * 60 * 60 * 24);
-      return dayDifference <= days;
+      return transactionDate >= startDate && transactionDate <= endDate;
     });
     return filteredTransactions;
+  };
+
+  const handleCustomRange = () => {
+    setTimeRange('custom');
   };
 
   let filteredTransactions = transactions;
@@ -46,6 +54,8 @@ function ExchangeRateGraph({ userToken }) {
     filteredTransactions = filterTransactionsByDate(transactions, 30);
   } else if (timeRange === 'year') {
     filteredTransactions = filterTransactionsByDate(transactions, 365);
+  } else if (timeRange === 'custom') {
+    filteredTransactions = filterTransactionsByDate(transactions, startDate, endDate);
   }
 
   const data = filteredTransactions.map((transaction, index, array) => {
@@ -58,23 +68,42 @@ function ExchangeRateGraph({ userToken }) {
   });
 
   return (
-    <div>
-      <LineChart width={800} height={300} data={data}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="date" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="rate" stroke="#8884d8" />
-      </LineChart>
+    <div className="ExchangeRateGraph">
+      <ResponsiveContainer width="100%" height={300}>
+        <LineChart data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="date" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="rate" stroke="#8884d8" />
+        </LineChart>
+      </ResponsiveContainer>
       <div>
         <button onClick={() => setTimeRange('all')}>All Time</button>
         <button onClick={() => setTimeRange('day')}>Last Day</button>
         <button onClick={() => setTimeRange('month')}>Last Month</button>
         <button onClick={() => setTimeRange('year')}>Last Year</button>
-      </div>
-    </div>
-  );
+        </div>
+        <div>
+          <label htmlFor="start-date">Start Date:</label>
+          <input
+type="date"
+id="start-date"
+value={startDate}
+onChange={(e) => setStartDate(e.target.value)}
+/>
+<label htmlFor="end-date">End Date:</label>
+<input
+type="date"
+id="end-date"
+value={endDate}
+onChange={(e) => setEndDate(e.target.value)}
+/>
+<button onClick={handleCustomRange}>Custom Range</button>
+</div>
+</div>
+);
 }
 
 export default ExchangeRateGraph;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { TextField, Button, Select, MenuItem } from "@mui/material";
+import './ExchangeTransactions.css'
 
 const ExchangeTransactions = ({ userToken }) => {
   const [transactions, setTransactions] = useState([]);

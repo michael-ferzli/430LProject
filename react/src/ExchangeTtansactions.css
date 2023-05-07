@@ -1,0 +1,23 @@
+.ExchangeTransactions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .ExchangeTransactions .amount-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+  }
+  
+  .ExchangeTransactions label {
+    margin-right: 5px;
+  }
+  
+  .ExchangeTransactions #add-button {
+    margin-top: 10px;
+  }
+  
