@@ -1,8 +1,8 @@
-import './App.css'
-import './ExchangeRateGraph.css'
-import './ExchangeRateStats.css'
+import './App.css';
+import './ExchangeRateGraph.css';
+import './ExchangeRateStats.css';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from "@mui/material/Typography";
@@ -12,7 +12,6 @@ import Alert from "@mui/material/Alert";
 import UserCredentialsDialog from "./UserCredentialsDialog/UserCredentialsDialog";
 import { getUserToken, saveUserToken, clearUserToken } from './localStorage';
 import { DataGrid } from '@mui/x-data-grid';
-import { useCallback } from 'react';
 import { MenuItem, TextField, Select } from '@mui/material';
 import ExchangeRateGraph from './ExchangeRateGraph';
 import ExchangeRateStats from './ExchangeRateStats';
@@ -21,7 +20,9 @@ import ExchangeTransactions from './ExchangeTransactions';
 import UserTransactions from './USerTransactions';
 import Forum from './Forum';
 import MiniGame from './MiniGame';
-
+import { Tooltip } from '@reach/tooltip';
+import { useTooltip, useTooltipTrigger } from '@react-aria/tooltip';
+import '@reach/tooltip/styles.css';
 
 var SERVER_URL = "http://127.0.0.1:5000";
 
@@ -158,6 +159,20 @@ function App() {
       setCalculatorOutput(calculatorInput/buyUsdRate);
     }
   }
+  function AriaTooltip({ children, label }) {
+    let { tooltipProps, triggerProps, isVisible } = useTooltip();
+
+    return (
+      <useTooltipTrigger {...triggerProps} aria-describedby="description">
+        {children}
+        {isVisible && (
+          <Tooltip {...tooltipProps} id="description">
+            {label}
+          </Tooltip>
+        )}
+      </useTooltipTrigger>
+    );
+  }
   return (
     <body>
         <AppBar position="static">
@@ -228,7 +243,7 @@ function App() {
               <form name="transaction-entry">
                   <div className="amount-input">
                       <label htmlFor="lbp-amount">LBP Amount</label>
-                      <TextField id="lbp-amount" type="number" value={lbpInput} onChange={e => setLbpInput(e.target.value)} min="0"/>
+                      <TextField id="lbp-amount" type="number" value={lbpInput} onChange={e => setLbpInput(e.target.value)} min="0" aria-describedby="lbp-description"/>
                   </div>
                   <div className="amount-input">
                       <label htmlFor="usd-amount">USD Amount</label>
@@ -238,6 +253,7 @@ function App() {
                       <MenuItem value="usd-to-lbp">USD to LBP</MenuItem>
                       <MenuItem value="lbp-to-usd">LBP to USD</MenuItem>
                   </Select>
+                  <AriaTooltip label="This button adds a new transaction"></AriaTooltip>
                   <Button id="add-button" className="button" type="button" onClick={addItem}>
                       Add
                   </Button>
