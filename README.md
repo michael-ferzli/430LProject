@@ -1,14 +1,32 @@
-# 430LProject
-## Project Description
-This project, called ExchangeRate, was created to calculate the exchange rate LBP/USD using transactions that are inputted by users.
-It contains an interface to see the current exchange rate and to add a transaction that was made. It also contains a graph that shows the history of the exchange rate values over time.
+# ExchangeRate
+ExchangeRate is a project designed to calculate the exchange rate between the Lebanese Pound (LBP) and the United States Dollar (USD) using transactions inputted by users. The project includes an interface for viewing the current exchange rate, adding transactions, and a graph displaying the history of the exchange rate values over time. Additionally, the project includes a forum where members can post comments on the exchange rate and a mini-game to provide users with a fun experience.
 
-Moreover, we can find a forum where members can post their comments on the exchange rate, but also a minigame to let users have fun.
+## Project Structure
+The ExchangeRate project is divided into three main directories:
 
-##Project Decomposition
-This project consists of 3 main directories:
-1) backend is a flask project used to create the HTTP routes that the front-end will be using
-2) desktop contains the front-end part of the project that runs using JAVA FX on a computer.
-3) react contains the code needed to render the project on a website using react.js, whether on a computer or on a cellphone
+backend: contains a Flask project that creates the HTTP routes that the front-end will use.
+desktop: contains the front-end part of the project that runs on a computer using JavaFX.
+react: contains the code needed to render the project on a website using React.js, whether on a computer or a mobile device.
+Each directory includes a README file that explains how to run it so you can experience the full potential of the project.
 
-Each of these 3 folders contains a ReadMe file that will explain exactly how to run it so you can experience the full potential of the project.
+Getting Started
+To run the ExchangeRate project, you can clone the repository to your local machine:
+ ```
+git clone https://github.com/<username>/ExchangeRate.git
+```
+
+Then, navigate to the project directory:
+
+```
+cd 430LProject
+```
+
+Each directory includes a README file with instructions on how to run the project.
+
+## Technologies Used
+The ExchangeRate project uses the following technologies:
+
+Flask: a web framework used to create the backend
+JavaFX: a software platform used to create the desktop frontend
+React.js: a JavaScript library used to create the website frontend
+Chart.js: a JavaScript library used to create the graph displaying the history of the exchange rate values over time.
