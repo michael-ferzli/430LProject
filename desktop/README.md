@@ -52,4 +52,4 @@ The ExchangeService class is responsible for managing communication with the rem
 7. Resources Directory
 
 The resources directory contains various assets used by the application, including FXML files, CSS stylesheets, and images. The FXML files define the layout and structure of the user interface, and the CSS stylesheets control the appearance and styling of the UI elements. Images, such as icons and logos, are also stored in the resources directory. Each page of the frontend in FXML is stored in a separate directory along with its respective StyleSheets
-
+                                      
