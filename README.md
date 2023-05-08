@@ -29,4 +29,3 @@ The ExchangeRate project uses the following technologies:
 Flask: a web framework used to create the backend
 JavaFX: a software platform used to create the desktop frontend
 React.js: a JavaScript library used to create the website frontend
-Chart.js: a JavaScript library used to create the graph displaying the history of the exchange rate values over time.
