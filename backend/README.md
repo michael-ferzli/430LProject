@@ -20,9 +20,7 @@ Then, navigate to the backend directory and install the necessary dependencies:
 
 ```
 cd ExchangeRate/backend
-
 pip install -r requirements.txt
-```
 ```
 
 After that, you should run:
