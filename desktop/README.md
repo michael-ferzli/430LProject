@@ -1,11 +1,11 @@
-Currency Exchange Desktop Application - Technical Documentation
+# Currency Exchange Desktop Application - Technical Documentation
 
-1. Overview
+## Overview
 
 Michael Ferzli's original lab submission was used because he got the highest grade in the group on said lab.
 This technical documentation provides an overview of the project structure, general architecture, and high-level architecture of the Currency Exchange Desktop application, a Java-based desktop application for currency exchange services.
 
-2. Project Structure
+## Project Structure
 
 The Currency Exchange Desktop application is organized into the following packages:
 
@@ -21,11 +21,11 @@ com.mdf00.exchange.Currency_game: Contains the FXML controller class for the cur
 com.mdf00.exchange.ExchangeTransaction: Contains the FXML controller class for the offers features where user can Exchange transaction.
 Ressources: Contains the FXML files for the user interface.
 
-3. General Architecture
+## General Architecture
 
 The application uses a Model-View-Controller (MVC) architectural pattern. The user interface is designed using JavaFX and FXML, and the controllers handle user interactions and application logic. The model classes define the data structures used by the application, and the ExchangeService class manages communication with the remote API.
 
-4. High-Level Architecture
+## High-Level Architecture
 
 The high-level architecture of the application consists of the following software modules:
 
@@ -41,15 +41,15 @@ The controller module processes the input, updates the model if necessary, and m
 The ExchangeService module communicates with the remote API and returns the requested data to the controller module.
 The controller module updates the UI module with the retrieved data or any changes made to the model.
 
-5. Model
+## Model
 
 The model package contains classes that define the data structures used by the application. These classes include User, Message, Transaction, Offer, and Rate. Each class corresponds to a specific entity in the application's domain and includes properties, getters, and setters. These classes utilized the SerializedName package in jaba in order to directly map the api's body to an object on the frontend.
 
-6. ExchangeService
+## ExchangeService
 
 The ExchangeService class is responsible for managing communication with the remote API. It uses Retrofit, a type-safe HTTP client for Java, to make API calls and handle HTTP requests and responses. The ExchangeService class defines an interface called Exchange that includes methods for performing various API calls, such as retrieving exchange rates, managing transactions, and interacting with the forum.
 
-7. Resources Directory
+## Resources Directory
 
 The resources directory contains various assets used by the application, including FXML files, CSS stylesheets, and images. The FXML files define the layout and structure of the user interface, and the CSS stylesheets control the appearance and styling of the UI elements. Images, such as icons and logos, are also stored in the resources directory. Each page of the frontend in FXML is stored in a separate directory along with its respective StyleSheets
                                       
