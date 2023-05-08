@@ -12,7 +12,7 @@ Each directory includes a README file that explains how to run it so you can exp
 Getting Started
 To run the ExchangeRate project, you can clone the repository to your local machine:
  ```
-git clone https://github.com/<username>/ExchangeRate.git
+git clone https://github.com/michael-ferzli/430LProject.git
 ```
 
 Then, navigate to the project directory:
