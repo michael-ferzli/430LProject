@@ -1,0 +1,23 @@
+The API has the following endpoints:
+
+	1	/user: This endpoint is used to create a new user. It accepts a POST request with a JSON payload containing user_name and password. It responds with a 200 status code and a JSON payload containing details of the created user.
+
+	2	/transaction: This endpoint has two operations. The first is a POST operation to add a new transaction. The JSON payload for the request must include amount_usd, amount_lbp and type. It responds with a 200 status code and a JSON payload containing details of the created transaction. The second operation is a GET operation that returns a list of transactions for the authenticated user. It responds with a 200 status code and a JSON payload containing a list of transactions or a 403 status code for unauthorized access.
+
+	3	/authentication: This endpoint is used to authenticate a user. It accepts a POST request with a JSON payload containing user_name and password. It responds with a 200 status code and a JSON payload containing a token or a 403 status code for an invalid user or password.
+
+	4	/exchangeRate: This endpoint returns the exchange rate based on transactions in the past three days. It responds with a 200 status code and a JSON payload containing the exchange rates for USD to LBP and LBP to USD.
+
+	5	/graph: This endpoint returns a list of all transactions. It responds with a 200 status code and a JSON payload containing a list of transactions.
+
+	6	/acceptOffer: This endpoint is used to accept an offer. It accepts a POST request with a JSON payload containing offer_id. It responds with a 200 status code and a JSON payload containing details of the accepted offer or a 403 status code for unauthorized access.
+
+	7	/getOffers: This endpoint returns a list of all offers. It responds with a 200 status code and a JSON payload containing a list of offers.
+
+	8	/postOffer: This endpoint is used to post a new offer. It accepts a POST request with a JSON payload containing usd_amount, lbp_amount and usd_to_lbp. It responds with a 200 status code and a JSON payload containing details of the created offer or a 403 status code for unauthorized access.
+
+	9	/postMessage: This endpoint is used to post a new message. It accepts a POST request with a JSON payload containing message. It responds with a 200 status code and a JSON payload containing details of the created message or a 403 status code for unauthorized access.
+
+	10	/getMessages: This endpoint returns a list of all messages. It responds with a 200 status code and a JSON payload containing a list of messages.
+
+	11	/getUserFromId: This endpoint is used to get user details by user ID. It accepts a GET request with a JSON payload containing user_id. It responds with a 200 status code and a JSON payload containing user details.
