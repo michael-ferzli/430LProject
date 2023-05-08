@@ -1,0 +1,21 @@
+.nav-container {
+    -fx-border-color: #66BB6A;
+    -fx-border-width: 1px;
+    -fx-pref-width: 150px;
+}
+
+.nav-button {
+    -fx-background-color: #66BB6A;
+    -fx-text-fill: white;
+    -fx-border-color: #43A047;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5 15 5 15;
+    -fx-min-width: 100px;
+    -fx-min-height: 50px;
+    -fx-font-size: 18px;
+}
+
+.nav-button:hover {
+    -fx-background-color: #43A047;
+}

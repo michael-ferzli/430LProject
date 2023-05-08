@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox layoutY="20" layoutX="100" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.mdf00.exchange.ExchangeTransaction.ExchangeTransaction" spacing="10" stylesheets="@ExchangeTransaction.css">
+
+    <VBox layoutX="10" layoutY="10" spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml">
+        <Label text="Post Your Transaction"/>
+
+        <HBox spacing="10" alignment="CENTER">
+            <Label text="USD Amount:"/>
+            <TextField fx:id="usdAmountField"/>
+        </HBox>
+
+        <HBox spacing="10" alignment="CENTER">
+            <Label text="LBP Amount:"/>
+            <TextField fx:id="lbpAmountField"/>
+        </HBox>
+
+        <HBox spacing="10" alignment="CENTER">
+            <Label text="Transaction Type:"/>
+            <ComboBox fx:id="transactionTypeComboBox"/>
+        </HBox>
+
+        <Button text="Post Transaction" fx:id="postTransactionButton" onAction="#handlePostTransaction"/>
+    </VBox>
+
+
+    <TableView fx:id="offersTableView" prefWidth="400" prefHeight="200" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text="USD Amount" fx:id="usdAmountColumn" prefWidth="100" />
+            <TableColumn text="LBP Amount" fx:id="lbpAmountColumn" prefWidth="90" />
+            <TableColumn text="USD To LBP" fx:id="TypeColumn" prefWidth="90" />
+            <TableColumn text="User ID" fx:id="userIdColumn" prefWidth="90" />
+            <TableColumn fx:id="acceptOfferColumn" text="Accept Offer" prefWidth="90" />
+        </columns>
+    </TableView>
+
+</VBox>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="center" hgap="10" prefHeight="475.0" prefWidth="600.0" styleClass="root" stylesheets="@rates.css" vgap="10" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mdf00.exchange.rates.Rates">
+    <Label styleClass="header" text="LBP Exchange Rate" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
+    <Label styleClass="value-label" text="Buy USD Rate" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+    <Label fx:id="buyUsdRateLabel" styleClass="value" text="Buy Rate" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+    <Label styleClass="value-label" text="Sell USD Rate" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+    <Label fx:id="sellUsdRateLabel" styleClass="value" text="Sell Rate" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+    <Label styleClass="value-label" text="USD Amount" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+    <TextField fx:id="usdTextField" prefWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+    <Label styleClass="value-label" text="LBP Amount" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+    <TextField fx:id="lbpTextField" prefHeight="50.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+    <RadioButton selected="true" text="Buy USD" GridPane.columnIndex="0" GridPane.rowIndex="9">
+        <toggleGroup>
+            <ToggleGroup fx:id="transactionType" />
+        </toggleGroup>
+    </RadioButton>
+    <RadioButton text="Sell USD" toggleGroup="$transactionType" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+    <Button alignment="CENTER_RIGHT" onAction="#addTransaction" prefHeight="50.0" prefWidth="182.0" styleClass="button" text="Add Transaction" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+
+    <Separator orientation="HORIZONTAL" prefHeight="24.0" prefWidth="599.0" styleClass="separator" GridPane.RowIndex="11" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+    <Label styleClass="value-label" text="Calculator" GridPane.columnIndex="0" GridPane.rowIndex="12" />
+    <Label fx:id="calculationResult" styleClass="value" text="Result:" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+    <TextField fx:id="calculationTextField" GridPane.columnIndex="0" GridPane.rowIndex="13" />
+    <RadioButton selected="true" text="To USD" GridPane.columnIndex="0" GridPane.rowIndex="14">
+        <toggleGroup>
+            <ToggleGroup fx:id="calculationType" />
+        </toggleGroup>
+    </RadioButton>
+    <RadioButton text="To LBP" toggleGroup="$calculationType" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+    <Button onAction="#calculate" text="Calculate" GridPane.columnIndex="0" GridPane.rowIndex="15" />
+   <columnConstraints>
+       <ColumnConstraints />
+       <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+
+</GridPane>

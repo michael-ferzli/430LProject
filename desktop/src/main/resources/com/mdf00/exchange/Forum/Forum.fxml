@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.mdf00.exchange.Forum.Forum"
+            prefHeight="400.0" prefWidth="600.0"
+            style="-fx-background-color: #C8E6C9;">
+
+    <VBox fx:id="root" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx"
+          styleClass="root" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <TableView fx:id="messageTable" VBox.vgrow="ALWAYS"
+                   styleClass="table-view" maxWidth="1.7976931348623157E308" minWidth="-Infinity">
+            <columns>
+                <TableColumn fx:id="usernameColumn" text="Name" />
+                <TableColumn fx:id="messageColumn" text="Message" />
+                <TableColumn fx:id="dateColumn" text="Date"/>
+            </columns>
+            <VBox.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </VBox.margin>
+        </TableView>
+
+        <TextArea fx:id="messageInput" promptText="Write your message here..." VBox.vgrow="NEVER"
+                  styleClass="text-area" maxWidth="1.7976931348623157E308" minWidth="-Infinity">
+            <VBox.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0"/>
+            </VBox.margin>
+        </TextArea>
+
+        <Button text="Send" onAction="#sendMessage" VBox.vgrow="NEVER"
+                styleClass="button">
+            <VBox.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0"/>
+            </VBox.margin>
+        </Button>
+    </VBox>
+
+</AnchorPane>

@@ -1,0 +1,41 @@
+.root {
+    -fx-font-family: Sans-serif;
+    -fx-base: #b6e7c9;
+}
+
+.table-view {
+    -fx-border-color: #66BB6A;
+    -fx-border-radius: 10;
+    -fx-background-color: #ddd;
+    -fx-padding: 10px;
+}
+
+.table-row-cell {
+    -fx-background-color: #f4f4f4;
+    -fx-padding: 5px;
+    -fx-border-color: #66BB6A;
+}
+
+.table-cell {
+    -fx-text-fill: #66BB6A;
+    -fx-padding: 1 1 1 1;
+}
+
+.text-field {
+    -fx-background-color: #f4f4f4;
+    -fx-border-color: #66BB6A;
+    -fx-border-radius: 10;
+    -fx-padding: 5px;
+}
+
+.button {
+    -fx-background-color: #66BB6A;
+    -fx-text-fill: white;
+    -fx-border-radius: 5;
+    -fx-padding: 5px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #43A047;
+}

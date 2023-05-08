@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.CategoryAxis?>
+<ScrollPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.mdf00.exchange.Statistics.Statistics"
+            styleClass="root"
+            stylesheets="@Statistics.css">
+    <AnchorPane>
+        <Label text="Show: " layoutX="10" layoutY="559" styleClass="label"/>
+        <ComboBox fx:id="statsSelector" layoutX="60" layoutY="550" styleClass="text-field"/>
+
+        <VBox fx:id="LBP_To_USD" styleClass="vbox" layoutX="280" layoutY="500" spacing="10" stylesheets="@Statistics.css" visible="true">
+            <Label text="LBP To USD" styleClass="header"/>
+            <Label fx:id="dailylbp_to_usd" text="Daily Change: " styleClass="label"/>
+            <Label fx:id="weeklylbp_to_usd" text="Weekly Change:" styleClass="label"/>
+            <Label fx:id="monthlylbp_to_usd" text="Monthly Change:" styleClass="label"/>
+            <Label fx:id="yearlylbp_to_usd" text="Yearly Change: " styleClass="label"/>
+        </VBox>
+        <VBox fx:id="USD_To_LBP" styleClass="vbox" layoutX="280" layoutY="500" spacing="10" stylesheets="@Statistics.css" visible="false">
+            <Label text="USD To LBP" styleClass="header"/>
+            <Label fx:id="dailyusd_to_lbp" text="Daily Change: " styleClass="label"/>
+            <Label fx:id="weeklyusd_to_lbp" text="Weekly Change:" styleClass="label"/>
+            <Label fx:id="monthlyusd_to_lbp" text="Monthly Change:" styleClass="label"/>
+            <Label fx:id="yearlyusd_to_lbp" text="Yearly Change: " styleClass="label"/>
+        </VBox>
+        <VBox styleClass="vbox" fx:id="LBP_To_USD_STD" layoutX="280" layoutY="500" spacing="10" stylesheets="@Statistics.css" visible="false">
+            <Label text="LBP To USD STD" styleClass="header"/>
+            <Label fx:id="dailylbp_to_usd_std" text="Daily Change: " styleClass="label"/>
+            <Label fx:id="weeklylbp_to_usd_std" text="Weekly Change:" styleClass="label"/>
+            <Label fx:id="monthlylbp_to_usd_std" text="Monthly Change:" styleClass="label"/>
+            <Label fx:id="yearlylbp_to_usd_std" text="Yearly Change: " styleClass="label"/>
+        </VBox>
+        <VBox styleClass="vbox" fx:id="USD_To_LBP_STD" layoutX="280" layoutY="500" spacing="10" stylesheets="@Statistics.css" visible="false">
+            <Label text="USD To LBP STD" styleClass="header"/>
+            <Label fx:id="dailyusd_to_lbp_std" text="Daily Change: " styleClass="label"/>
+            <Label fx:id="weeklyusd_to_lbp_std" text="Weekly Change:" styleClass="label"/>
+            <Label fx:id="monthlyusd_to_lbp_std" text="Monthly Change:" styleClass="label"/>
+            <Label fx:id="yearlyusd_to_lbp_std" text="Yearly Change: " styleClass="label"/>
+        </VBox>
+        <VBox styleClass="vbox" fx:id="LBP_To_USD_MAX" layoutX="280" layoutY="500" spacing="10" stylesheets="@Statistics.css" visible="false">
+            <Label text="LBP To USD MAX" styleClass="header"/>
+            <Label fx:id="dailylbp_to_usd_max" text="Daily Change: " styleClass="label"/>
+            <Label fx:id="weeklylbp_to_usd_max" text="Weekly Change:" styleClass="label"/>
+            <Label fx:id="monthlylbp_to_usd_max" text="Monthly Change:" styleClass="label"/>
+            <Label fx:id="yearlylbp_to_usd_max" text="Yearly Change: " styleClass="label"/>
+        </VBox>
+        <VBox styleClass="vbox" fx:id="USD_To_LBP_MAX" layoutX="280" layoutY="500" spacing="10" stylesheets="@Statistics.css" visible="false">
+            <Label text="USD To LBP MAX" styleClass="header"/>
+            <Label fx:id="dailyusd_to_lbp_max" text="Daily Change: " styleClass="label"/>
+            <Label fx:id="weeklyusd_to_lbp_max" text="Weekly Change:" styleClass="label"/>
+            <Label fx:id="monthlyusd_to_lbp_max" text="Monthly Change:" styleClass="label"/>
+            <Label fx:id="yearlyusd_to_lbp_max" text="Yearly Change: " styleClass="label"/>
+        </VBox>
+        <VBox styleClass="vbox" fx:id="LBP_To_USD_MIN" layoutX="280" layoutY="500" spacing="10" stylesheets="@Statistics.css" visible="false">
+            <Label text="LBP To USD MIN" styleClass="header"/>
+            <Label fx:id="dailylbp_to_usd_min" text="Daily Change: " styleClass="label"/>
+            <Label fx:id="weeklylbp_to_usd_min" text="Weekly Change:" styleClass="label"/>
+            <Label fx:id="monthlylbp_to_usd_min" text="Monthly Change:" styleClass="label"/>
+            <Label fx:id="yearlylbp_to_usd_min" text="Yearly Change: " styleClass="label"/>
+        </VBox>
+        <VBox styleClass="vbox" fx:id="USD_To_LBP_MIN" layoutX="280" layoutY="500" spacing="10" stylesheets="@Statistics.css">
+            <Label text="USD To LBP MIN" styleClass="header"/>
+            <Label fx:id="dailyusd_to_lbp_min" text="Daily Change: " styleClass="label"/>
+            <Label fx:id="weeklyusd_to_lbp_min" text="Weekly Change:" styleClass="label"/>
+            <Label fx:id="monthlyusd_to_lbp_min" text="Monthly Change:" styleClass="label"/>
+            <Label fx:id="yearlyusd_to_lbp_min" text="Yearly Change: " styleClass="label"/>
+        </VBox>
+        <LineChart layoutX="100" fx:id="transactionChart" title="Transaction Rates Over Time" animated="false" styleClass="line-chart" createSymbols="false">
+            <xAxis>
+                <CategoryAxis label="Time" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Rate" />
+            </yAxis>
+        </LineChart>
+        <DatePicker styleClass="date-picker" fx:id="startDatePicker" layoutX="10" layoutY="410" />
+        <Label text="To" layoutX="270" layoutY="418" styleClass="to-label"/>
+        <DatePicker styleClass="date-picker" fx:id="endDatePicker" layoutX="320" layoutY="410"/>
+        <Button styleClass="nav-button" fx:id="applyDateRangeButton" layoutY="405" layoutX="590" text="Apply Date Range" onAction="#applyDateRange"/>
+        <Button styleClass="nav-button" fx:id="resetButton" layoutX="630" layoutY="80" text="Reset" onAction="#resetGraph" />
+    </AnchorPane>
+</ScrollPane>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="borderPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@parent.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mdf00.exchange.Parent">
+    <left>
+        <VBox fillWidth="true" spacing="5" styleClass="nav-container">
+            <Button minWidth="99.0" onAction="#ratesSelected" prefHeight="50.0" prefWidth="160.0" styleClass="nav-button" text="Exchange Rate" />
+            <Button fx:id="transactionButton" onAction="#transactionsSelected" prefHeight="50.0" prefWidth="159.0" styleClass="nav-button" text="Transactions" />
+            <Button fx:id="loginButton" onAction="#loginSelected" prefHeight="50.0" prefWidth="153.0" styleClass="nav-button" text="Login" />
+            <Button fx:id="registerButton" onAction="#registerSelected" prefHeight="50.0" prefWidth="167.0" styleClass="nav-button" text="Register" />
+            <Button fx:id="statisticsButton" onAction="#statisticsSelected" prefHeight="50.0" prefWidth="152.0" styleClass="nav-button" text="Statistics" />
+            <Button fx:id="offersButton" onAction="#offersSelected" prefHeight="50.0" prefWidth="158.0" styleClass="nav-button" text="Offers" />
+            <Button fx:id="forumButton" onAction="#forumSelected" prefHeight="50.0" prefWidth="158.0" styleClass="nav-button" text="Forum" />
+            <Button fx:id="gameButton" onAction="#gameSelected" prefHeight="50.0" prefWidth="158.0" styleClass="nav-button" text="Minigame" />
+            <Button fx:id="logoutButton" onAction="#logoutSelected" prefHeight="50.0" prefWidth="155.0" styleClass="nav-button" text="Log out" />
+        </VBox>
+    </left>
+    <center>
+        <fx:include source="../../../rates/rates.fxml" />
+    </center>
+</BorderPane>
